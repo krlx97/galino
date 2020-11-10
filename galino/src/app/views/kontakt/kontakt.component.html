@@ -1,0 +1,73 @@
+<div class="wrapper">
+
+  <img class="bgd" src="assets/bgd/kontakt.jpg">
+
+  <div class="contact__form">
+
+    <h3>Pišite nam</h3>
+    <form [formGroup]="contactForm">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Ime i prezime</mat-label>
+        <input matInput type="text" name="name" formControlName="name">
+        <mat-error>{{contactFormErrors.name()}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" formControlName="email">
+        <mat-error>{{contactFormErrors.email()}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Broj telefona</mat-label>
+        <input matInput type="tel" name="phone" formControlName="phone">
+        <mat-error>{{contactFormErrors.phone()}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Poruka</mat-label>
+        <textarea matInput type="text" name="msg" formControlName="msg"></textarea>
+        <mat-error>{{contactFormErrors.msg()}}</mat-error>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        type="submit"
+        (click)="onContactFormSubmit()"
+        [disabled]="!contactForm.valid || isFetching">
+        POŠALJI
+      </button>
+
+    </form>
+
+    <div class="wrapper--progress-bar">
+      <mat-progress-bar *ngIf="isFetching" mode="indeterminate"></mat-progress-bar>
+    </div>
+
+  </div>
+
+  <div class="contact__map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2831.920205635323!2d20.388037315896266!3d44.7824320790988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a6f8263451d4f%3A0xe1d9b68ac2097590!2sGALINO%20BEACH%20BAR!5e0!3m2!1sen!2srs!4v1600276776815!5m2!1sen!2srs"
+      [width]="deviceService.isMobile ? '320' : '640'"
+      [height]="deviceService.isMobile ? '240' : '480'"
+      frameborder="0"
+      style="border:0;"
+      allowfullscreen=""
+      aria-hidden="false"
+      tabindex="0">
+    </iframe>
+
+    <div class="contact">
+      <i class="fas fa-map-marker-alt"></i> Ada Ciganlija, Makiška strana lokal br. 8
+    </div>
+    <div class="contact">
+      <i class="fas fa-bell"></i> Ponedeljak - Petak, 8:00 - 20:00
+    </div>
+    <div class="contact">
+      <i class="fas fa-phone"></i> 065 234 02 38 | 060 034 02 38
+    </div>
+  </div>
+
+</div>

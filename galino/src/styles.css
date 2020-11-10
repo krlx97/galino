@@ -1,0 +1,21 @@
+:root {
+  --primary: 255, 229, 127;
+  --accent: 250, 250, 250;
+  --warn: 244, 67, 54;
+
+  --spacing-sm: 0.75em;
+  --spacing-md: 1em;
+  --spacing-lg: 1.5em;
+
+  --ease-in-out-cubic: 0.65, 0, 0.35, 1;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-y: scroll;
+}

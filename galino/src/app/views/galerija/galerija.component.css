@@ -1,0 +1,15 @@
+.gallery__img {
+  height: auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .gallery {
+    flex-basis: 50%;
+  }
+}

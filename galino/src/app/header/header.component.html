@@ -1,0 +1,33 @@
+<header class="header">
+
+  <div class="header__left">
+
+    <div class="logo">
+      <a routerLink="/pocetna" title="Početna" (click)="hideHeader()">
+        <img class="logo__img" src="assets/logo.png" alt="Logo">
+      </a>
+    </div>
+
+    <div class="nav">
+      <a class="nav__link" routerLink="/meni" title="Meni" (click)="hideHeader()">Meni</a>
+      <a class="nav__link" routerLink="/rezervacija" title="Rezervacija" (click)="hideHeader()">Rezervacija</a>
+      <a class="nav__link" routerLink="/galerija" title="Galerija" (click)="hideHeader()">Galerija</a>
+      <a class="nav__link" routerLink="/kontakt" title="Kontakt" (click)="hideHeader()">Kontakt</a>
+    </div>
+
+  </div>
+
+  <div class="header__right">
+
+    <div class="social">
+      <a class="social__link" href="#" target="_blank" title="Facebook">
+        <i class="fab fa-facebook-f fa-2x"></i>
+      </a>
+      <a class="social__link" href="#" target="_blank" title="Instagram">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+    </div>
+
+  </div>
+
+</header>

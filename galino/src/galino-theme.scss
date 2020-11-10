@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$galino-primary: mat-palette($mat-yellow, 700);
+$galino-accent: mat-palette($mat-gray, 50);
+$galino-warn: mat-palette($mat-red, 700);
+
+$galino-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $galino-primary,
+      accent: $galino-accent,
+      warn: $galino-warn
+    )
+  )
+);
+
+@include angular-material-theme($galino-theme);

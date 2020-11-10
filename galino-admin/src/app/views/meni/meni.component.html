@@ -1,0 +1,68 @@
+<form [formGroup]="menuForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="menus">
+    <div *ngFor="let menu of menus.controls; index as i" class="category" [formGroupName]="i">
+
+      <h3>Meni</h3>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Naziv</mat-label>
+        <input matInput type="text" required formControlName="title">
+        <mat-error *ngIf="title(i).invalid && title(i).touched">
+          Polje ne sme biti prazno
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-icon-button type="button" (click)="onRmMenu(i)">
+        <i class="fas fa-trash"></i>
+      </button>
+
+      <div formArrayName="items">
+        <div *ngFor="let item of items(i).controls; index as k" [formGroupName]="k">
+
+          <h3>Proizvod</h3>
+
+          <mat-form-field appearance="standard">
+            <mat-label>Naziv</mat-label>
+            <input matInput type="text" required formControlName="name">
+            <mat-error *ngIf="name(i, k).invalid && name(i, k).touched">
+              Polje ne sme biti prazno
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="standard">
+            <mat-label>Sastojci</mat-label>
+            <input matInput type="text" required formControlName="ingredients">
+            <mat-error *ngIf="ingredients(i, k).invalid && ingredients(i, k).touched">
+              Polje ne sme biti prazno
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="standard">
+            <mat-label>Cena</mat-label>
+            <input matInput type="number" required formControlName="price">
+            <mat-error *ngIf="price(i, k).invalid && price(i, k).touched">
+              Polje ne sme biti prazno
+            </mat-error>
+          </mat-form-field>
+
+          <button mat-icon-button type="button" (click)="onRmProduct(i, k)">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+
+      <button mat-button type="button" (click)="onAddProduct(i)">DODAJ PROIZVOD</button>
+    </div>
+
+    <button mat-button type="button" (click)="onAddMenu()">DODAJ MENI</button>
+
+  </div>
+
+  <div class="progress-bar--wrapper">
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+  </div>
+
+  <hr>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="menuForm.invalid || isLoading">SAČUVAJ</button>
+</form>

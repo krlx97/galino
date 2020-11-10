@@ -1,0 +1,19 @@
+<div class="wrapper">
+
+  <div #hamburger class="hamburger" (click)="toggleNav()">
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
+  </div>
+
+  <app-header
+    class="header"
+    [@expandHeader]="isHeaderOpen"
+    (closeHeaderEvt)="toggleNav()">
+  </app-header>
+
+  <main [@routeAnimations]="prepareRoute(outlet)" class="main">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </main>
+
+</div>

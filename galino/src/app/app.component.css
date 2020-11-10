@@ -1,0 +1,64 @@
+.wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transform: translateX(-100%);
+  z-index: 1;
+}
+
+.hamburger {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+  z-index: 2;
+}
+.line {
+  height: 3px;
+  width: 30px;
+  background-color: rgb(var(--accent));
+  transition:
+    transform 225ms cubic-bezier(var(--ease-in-out-cubic)),
+    opacity 225ms cubic-bezier(var(--ease-in-out-cubic));
+}
+.change .line-1 {
+  transform: rotateZ(-405deg) translate(-8px, 6px);
+}
+.change .line-2 {
+  opacity: 0;
+}
+.change .line-3 {
+  transform: rotateZ(405deg) translate(-8px, -6px);
+}
+
+.main {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .header {
+    height: auto;
+    width: 100%;
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: none;
+  }
+}

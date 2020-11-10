@@ -1,0 +1,9 @@
+<div class="wrapper">
+
+  <div *ngFor="let image of images" class="gallery">
+    <img class="gallery__img" [src]="getImageSrc(image)">
+  </div>
+
+</div>
+
+<app-footer></app-footer>

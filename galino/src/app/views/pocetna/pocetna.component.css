@@ -1,0 +1,78 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  padding: var(--spacing-lg) var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+}
+
+.bgd {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.about {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.flip-card__wrapper {
+  margin: var(--spacing-md) 0;
+}
+
+.flip-card {
+  height: 426.6666666666667px;
+  width: 320px;
+  perspective: 720px;
+}
+
+.flip-card-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 8px;
+  transition: transform 675ms cubic-bezier(var(--ease-in-out-cubic));
+  transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card__img {
+  height: 426.6666666666667px;
+  width: 320px;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    height: 100%;
+    flex-direction: row;
+  }
+
+  .about, .flip-card--wrapper {
+    flex-basis: 50%;
+  }
+}

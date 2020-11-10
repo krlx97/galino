@@ -1,0 +1,13 @@
+<form [formGroup]="imageForm">
+  <label for="image">Slika</label>
+  <input type="file" formControlName="image" id="image">
+</form>
+
+<mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+
+<div class="images">
+  <div class="image" *ngFor="let image of images">
+    <img [src]="getImageSrc(image)">
+    <button mat-icon-button (click)="onRmImage(image)"><i class="fas fa-trash"></i></button>
+  </div>
+</div>

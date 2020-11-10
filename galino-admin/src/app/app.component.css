@@ -1,0 +1,19 @@
+mat-sidenav-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+mat-sidenav {
+  width: 320px;
+}
+
+.logo {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  height: 128px;
+}

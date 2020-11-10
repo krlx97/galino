@@ -1,0 +1,23 @@
+<div class="wrapper">
+
+  <ul class="list" *ngFor="let menu of menus">
+
+    <h3 class="list__header">{{menu.title}}</h3>
+
+    <ng-section *ngFor="let item of menu.items; last as isLast">
+
+      <li>
+        <p>{{item.name}}</p>
+        <div class="list__item__info">
+          <p class="list__item__recipe">{{item.ingredients}}</p>
+          <p class="list__item__price">RSD {{item.price | number}}</p>
+        </div>
+      </li>
+
+      <mat-divider *ngIf="!isLast"></mat-divider>
+
+    </ng-section>
+
+  </ul>
+
+</div>

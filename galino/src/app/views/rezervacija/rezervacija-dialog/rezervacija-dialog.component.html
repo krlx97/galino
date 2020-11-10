@@ -1,0 +1,60 @@
+<h4 mat-dialog-title>Rezervacija</h4>
+
+<mat-dialog-content>
+
+  <form id="reserveForm" [formGroup]="reserveForm" (ngSubmit)="onReserveFormSubmit()">
+
+    <mat-form-field appearance="standard">
+      <mat-label>Ime i prezime</mat-label>
+      <input matInput required type="text" name="name" formControlName="name">
+      <mat-error>{{reserveFormErrors.name()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Email</mat-label>
+      <input matInput required type="email" name="email" formControlName="email">
+      <mat-error>{{reserveFormErrors.email()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Broj telefona</mat-label>
+      <input matInput required type="tel" name="phone" formControlName="phone">
+      <mat-error>{{reserveFormErrors.phone()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Broj gostiju</mat-label>
+      <input matInput required type="number" min="1" name="guests" formControlName="guests">
+      <mat-error>{{reserveFormErrors.guests()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Datum</mat-label>
+      <input matInput required type="text" name="date" formControlName="date" [ngxMatDatetimePicker]="selectTimeDate">
+      <mat-error>{{reserveFormErrors.date()}}</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="selectTimeDate"></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker
+        #selectTimeDate
+        [showSeconds]="false"
+        [defaultTime]="getDefaultTime()">
+      </ngx-mat-datetime-picker>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Napomena</mat-label>
+      <textarea matInput type="text" maxlength="500" name="note" formControlName="note"></textarea>
+      <mat-error>{{reserveFormErrors.note()}}</mat-error>
+    </mat-form-field>
+
+  </form>
+
+  <div class="wrapper--progress-bar">
+    <mat-progress-bar *ngIf="isFetching" mode="indeterminate"></mat-progress-bar>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>IZLAZ</button>
+  <button mat-button color="primary" form="reserveForm" [disabled]="reserveForm.invalid || isFetching">REZERVISI</button>
+</mat-dialog-actions>
